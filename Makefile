@@ -1,6 +1,6 @@
 NAME = lib/libasm.a
 
-SRC = ft_strlen.s ft_strcmp.s ft_strcpy.s
+SRC = ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s ft_strdup.s ft_read.s
 OBJ_DIR = obj
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.s=.o))
 

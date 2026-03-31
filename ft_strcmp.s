@@ -2,13 +2,25 @@ section .text
 global ft_strcmp
 
 ft_strcmp:
-    push    rbp
-    mov     rbp, rsp
-    mov     rcx, 0
 loop:
-    cmp rsi, rdi
-    jne end
+    mov al, [rsi]
+    mov cl, [rdi]
+    cmp al, cl
+    jg inferior
+    jl superior
+    cmp al, 0
+    je equal
     inc rsi
-end:
-    mov [rax], al
+    inc rdi
+    jmp loop
+superior:
+    sub cl, al
+    movsx rax, cl 
+    ret
+inferior:
+    sub cl, al
+    movsx rax, cl
+    ret
+equal:
+    mov rax, 0
     ret
